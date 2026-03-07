@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Abigail's COPA Assessment · COPA STC</title>
+  <meta name="robots" content="noindex"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Mono:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/copa.css">
+</head>
+<body>
+<div id="home-popup" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;background:rgba(0,0,0,0.7);overflow-y:auto;padding:40px 20px">
+  <div style="max-width:560px;margin:0 auto;background:#0d1b2e;border:1px solid #1a3a55;border-radius:16px;padding:28px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;color:#ffffff">At-Home Recommendations</div>
+      <button onclick="togglePopup('home-popup')" style="background:transparent;border:none;color:#7a9ab8;font-size:20px;cursor:pointer">✕</button>
+    </div>
+    <div style="font-size:13px;color:#7a9ab8;margin-bottom:20px">Three development areas to focus on between sessions</div>
+    <div style="border:1px solid #0f2035;border-radius:12px;padding:16px;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+        <span style="font-size:18px">⚡</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#ffffff">Speed &amp; Explosiveness</span>
+      </div>
+      <div style="display:flex;gap:10px;margin-bottom:10px"><div style="min-width:20px;height:20px;border-radius:50%;background:#f5c84222;border:1px solid #f5c84244;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#f5c842;flex-shrink:0">1</div><div style="font-size:13px;color:#b8cfe0;line-height:1.6">Short sprint bursts of 10–20 yards, 2–3x per week. Focus on your first two steps — that's where games are won and lost.</div></div><div style="display:flex;gap:10px;margin-bottom:10px"><div style="min-width:20px;height:20px;border-radius:50%;background:#f5c84222;border:1px solid #f5c84244;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#f5c842;flex-shrink:0">2</div><div style="font-size:13px;color:#b8cfe0;line-height:1.6">Run 30–40 yard strides at full effort: relaxed shoulders, high knee drive, full extension behind you.</div></div>
+    </div><div style="border:1px solid #0f2035;border-radius:12px;padding:16px;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+        <span style="font-size:18px">💪</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#ffffff">Strength &amp; Power</span>
+      </div>
+      <div style="display:flex;gap:10px;margin-bottom:10px"><div style="min-width:20px;height:20px;border-radius:50%;background:#fb923c22;border:1px solid #fb923c44;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fb923c;flex-shrink:0">1</div><div style="font-size:13px;color:#b8cfe0;line-height:1.6">3 sets of squat jumps or broad jumps weekly — land softly, reset fully, maximum effort each rep.</div></div><div style="display:flex;gap:10px;margin-bottom:10px"><div style="min-width:20px;height:20px;border-radius:50%;background:#fb923c22;border:1px solid #fb923c44;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fb923c;flex-shrink:0">2</div><div style="font-size:13px;color:#b8cfe0;line-height:1.6">Bodyweight squats, lunges, and single-leg hops build leg strength that directly translates to jumping and sprinting.</div></div>
+    </div><div style="border:1px solid #0f2035;border-radius:12px;padding:16px;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+        <span style="font-size:18px">🔀</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#ffffff">Agility &amp; Quickness</span>
+      </div>
+      <div style="display:flex;gap:10px;margin-bottom:10px"><div style="min-width:20px;height:20px;border-radius:50%;background:#1fd07022;border:1px solid #1fd07044;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#1fd070;flex-shrink:0">1</div><div style="font-size:13px;color:#b8cfe0;line-height:1.6">Set up 4–5 cones and practice a T-drill or figure-8 pattern 3x per week. Time yourself and try to beat it.</div></div><div style="display:flex;gap:10px;margin-bottom:10px"><div style="min-width:20px;height:20px;border-radius:50%;background:#1fd07022;border:1px solid #1fd07044;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#1fd070;flex-shrink:0">2</div><div style="font-size:13px;color:#b8cfe0;line-height:1.6">Practice defensive shuffles and sharp 180° direction changes — low, quick cuts beat big looping turns every time.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="topbar">
+  <a href="/" style="display:inline-flex;align-items:center;gap:8px;background:#0d1b2e;border:1px solid #0f2035;border-radius:8px;padding:7px 14px;color:#c8daf0;text-decoration:none;font-size:13px;font-weight:600">← All Athletes</a>
+  <img src="assets/copa-wordmark.png" style="height:30px;width:auto;object-fit:contain;display:block" alt="COPA STC"/>
+</div>
+
+<div class="hero"><div class="hero-inner">
+  <div class="hero-text">
+    <div class="hero-eyebrow">COPA Score Assessment · 2026-02-27</div>
+    <div class="hero-name">Abigail Sura</div>
+    <div class="tags">
+      <div class="tag"><span>Age</span>13.30</div>
+      <div class="tag"><span>Level</span>12 LEVEL 3</div>
+      <div class='tag'><span>Position</span>Outside Defender</div>
+      
+    </div>
+  </div>
+  <div class="copa-hex">
+      <div class="hex-wrap"><svg viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="40,2 76,22 76,68 40,88 4,68 4,22" fill="rgba(245,185,50,0.10)" stroke="#1fd070" stroke-width="2"/></svg><span class="hex-num" style="color:#1fd070">71</span></div>
+      <div class="hex-label" style="color:#1fd070">COPA Score</div>
+    </div>
+</div></div>
+
+<div class="main">
+
+  <!-- Profile -->
+  <div style="margin-bottom:48px">
+    <div class="profile-label">Abigail's Performance Profile</div>
+    <div class="profile-headline">Stress tolerance — built into Abigail's game</div>
+    <div class="profile-body">Every elite player starts somewhere. Abigail's COPA Score of 71 is the baseline — what matters now is how this assessment guides the next phase of development. The data points to specific areas where intentional training will have the highest return. Cognitively, Abigail demonstrates sharp processing and decision-making ability. The opportunity is on the physical side — developing speed and athleticism will unlock the full potential of those technical skills. The most motivated athletes are the ones who get feedback and see their progress. This assessment is the starting point — reassessing in 4 months will show exactly how targeted training is paying off.</div>
+    <div class="cards-2">
+      <div class="strength-card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-size:16px">💪</span>
+          <span class="card-badge" style="color:#1fd070">Standout Strength</span>
+        </div>
+        <div class="card-title" style="color:#e0f7ed">Stress tolerance</div>
+        <div style="font-size:13px;color:#6ab88a;line-height:1.6">Ranks 84th percentile for VTS Stress — a genuine standout in their age group.</div>
+      </div>
+      <div class="develop-card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-size:16px">🎯</span>
+          <span class="card-badge" style="color:#f5c842">Area to Develop</span>
+        </div>
+        <div class="card-title" style="color:#fdf3cc">Top-end speed</div>
+        <div style="font-size:13px;color:#b8a050;line-height:1.6">Currently 28th percentile — the highest-leverage target. Focused sessions here will have the biggest impact on the overall COPA Score.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary Scores -->
+  <div class="section-scores">
+    <div class="scores-label">Summary Scores</div>
+    <div class="tiles"><div class="tile">
+  <div class="tile-label">Technical</div>
+  <div class="tile-val" style="color:#5b8fc9">77</div>
+  
+</div><div class="tile">
+  <div class="tile-label">Physical</div>
+  <div class="tile-val" style="color:#f5c842">58</div>
+  
+</div><div class="tile">
+  <div class="tile-label">Cognitive</div>
+  <div class="tile-val" style="color:#a78bfa">83</div>
+  
+</div><div class="tile">
+  <div class="tile-label">COPA Score</div>
+  <div class="tile-val" style="color:#1fd070">71</div>
+  
+</div></div>
+  </div>
+
+  <!-- 01 Assessment Results -->
+  <div class="section">
+    <div class="section-num">01</div>
+    <div class="section-title">Assessment Results</div>
+    <div class="section-sub">Percentile ranked vs age-matched peers from the COPA database</div>
+    <div class="section-inner">
+      <div class="comparison-group">
+      <span style="font-size:16px">👥</span>
+      <div>
+        <div style="font-family:monospace;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5b8fc9;margin-bottom:3px">Comparison Group</div>
+        <div style="font-size:13px;color:#b8cfe0">Female athletes aged <strong style="color:#e0eaf4">13.30 years ±6 months</strong> &nbsp;·&nbsp; <strong style="color:#e0eaf4">656 athletes</strong> in database</div>
+      </div>
+    </div>
+      <div class="metric-row">
+  <div class="metric-top">
+    <div class="metric-left">
+      <span class="metric-name">10 Yard Time</span>
+      <span class="pct-badge" style="color:#f5c842;background:#f5c84218">70th percentile</span>
+    </div>
+    <div class="metric-right">
+      <span class="metric-val">1.78sec</span>
+    </div>
+  </div>
+  <div class="bar-track"><div class="bar-fill" style="width:70%;background:#f5c842"></div></div>
+</div><div class="metric-row">
+  <div class="metric-top">
+    <div class="metric-left">
+      <span class="metric-name">Top MPH</span>
+      <span class="pct-badge" style="color:#f09030;background:#f0903018">28th percentile</span>
+    </div>
+    <div class="metric-right">
+      <span class="metric-val">15.2mph</span>
+    </div>
+  </div>
+  <div class="bar-track"><div class="bar-fill" style="width:28%;background:#f09030"></div></div>
+</div><div class="metric-row">
+  <div class="metric-top">
+    <div class="metric-left">
+      <span class="metric-name">Agility</span>
+      <span class="pct-badge" style="color:#f5c842;background:#f5c84218">49th percentile</span>
+    </div>
+    <div class="metric-right">
+      <span class="metric-val">15.84sec</span>
+    </div>
+  </div>
+  <div class="bar-track"><div class="bar-fill" style="width:49%;background:#f5c842"></div></div>
+</div><div class="metric-row">
+  <div class="metric-top">
+    <div class="metric-left">
+      <span class="metric-name">CMJ Jump Height</span>
+      <span class="pct-badge" style="color:#f5c842;background:#f5c84218">63th percentile</span>
+    </div>
+    <div class="metric-right">
+      <span class="metric-val">10.2in</span>
+    </div>
+  </div>
+  <div class="bar-track"><div class="bar-fill" style="width:63%;background:#f5c842"></div></div>
+</div><div class="metric-row">
+  <div class="metric-top">
+    <div class="metric-left">
+      <span class="metric-name">Cube Accuracy</span>
+      <span class="pct-badge" style="color:#f5c842;background:#f5c84218">51th percentile</span>
+    </div>
+    <div class="metric-right">
+      <span class="metric-val">68.8%</span>
+    </div>
+  </div>
+  <div class="bar-track"><div class="bar-fill" style="width:51%;background:#f5c842"></div></div>
+</div><div class="metric-row">
+  <div class="metric-top">
+    <div class="metric-left">
+      <span class="metric-name">Cube Speed</span>
+      <span class="pct-badge" style="color:#1fd070;background:#1fd07018">76th percentile</span>
+    </div>
+    <div class="metric-right">
+      <span class="metric-val">2.3sec</span>
+    </div>
+  </div>
+  <div class="bar-track"><div class="bar-fill" style="width:76%;background:#1fd070"></div></div>
+</div><div class="metric-row">
+  <div class="metric-top">
+    <div class="metric-left">
+      <span class="metric-name">Cube Rating</span>
+      <span class="pct-badge" style="color:#f5c842;background:#f5c84218">74th percentile</span>
+    </div>
+    <div class="metric-right">
+      <span class="metric-val">55.1</span>
+    </div>
+  </div>
+  <div class="bar-track"><div class="bar-fill" style="width:74%;background:#f5c842"></div></div>
+</div><div class="metric-row">
+  <div class="metric-top">
+    <div class="metric-left">
+      <span class="metric-name">Stress Tolerance</span>
+      <span class="pct-badge" style="color:#1fd070;background:#1fd07018">84th percentile</span>
+    </div>
+    <div class="metric-right">
+      <span class="metric-val">292</span>
+    </div>
+  </div>
+  <div class="bar-track"><div class="bar-fill" style="width:84%;background:#1fd070"></div></div>
+</div>
+      <div style="background:#0a1828;border:1px solid #0f2035;border-radius:14px;padding:20px 22px;margin-top:20px">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+    <div>
+      <div style="font-family:monospace;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5b8fc9;margin-bottom:4px">Biological Development</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#ffffff">Skeletal Age Analysis</div>
+    </div>
+    <a href="https://claude.ai/public/artifacts/6e2402a4-443e-4f10-8899-6ba7a7e0c2da" target="_blank"
+       style="font-size:12px;color:#5b8fc9;text-decoration:none;border:1px solid #1a3a55;border-radius:7px;padding:6px 12px;white-space:nowrap">
+      Why does this matter? →
+    </a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px">
+    <div style="background:#060d17;border:1px solid #0f2035;border-radius:10px;padding:14px">
+      <div style="font-family:monospace;font-size:9px;color:#4a6a82;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">Calendar Age</div>
+      <div style="font-family:monospace;font-size:22px;font-weight:700;color:#c8daf0">13.3</div>
+      <div style="font-size:11px;color:#5a7a92;margin-top:4px">Age at time of testing</div>
+    </div>
+    <div style="background:#060d17;border:1px solid #0f2035;border-radius:10px;padding:14px">
+      <div style="font-family:monospace;font-size:9px;color:#4a6a82;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">Skeletal Age</div>
+      <div style="font-family:monospace;font-size:22px;font-weight:700;color:#c8daf0">12.7</div>
+      <div style="font-size:11px;color:#5a7a92;margin-top:4px">Bone density analysis</div>
+    </div>
+    <div style="background:#060d17;border:1px solid #1fd07022;border-radius:10px;padding:14px">
+      <div style="font-family:monospace;font-size:9px;color:#4a6a82;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">Development Status</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#1fd070">On-Time</div>
+      <div style="font-size:11px;color:#5a7a92;margin-top:4px">Skeletal vs calendar age</div>
+    </div>
+  </div>
+  <button onclick="togglePopup('skel-popup')"
+    style="background:transparent;border:1px solid #1a3a55;border-radius:8px;padding:7px 14px;color:#7a9ab8;font-size:12px;cursor:pointer">
+    What do these terms mean? ▾
+  </button>
+  <div id="skel-popup" style="display:none;margin-top:12px;background:#060d17;border:1px solid #0f2035;border-radius:10px;padding:16px">
+    <div style="margin-bottom:10px"><strong style="color:#f5c842">Early Developer</strong> <span style="color:#8aabb8;font-size:13px">— Skeletal age is 1+ year ahead of calendar age. Physical maturation is running ahead of schedule.</span></div>
+    <div style="margin-bottom:10px"><strong style="color:#a78bfa">Late Developer</strong> <span style="color:#8aabb8;font-size:13px">— Skeletal age is 1+ year behind calendar age. Growth and physical development are still to come — often a big advantage long-term.</span></div>
+    <div><strong style="color:#1fd070">On-Time Developer</strong> <span style="color:#8aabb8;font-size:13px">— Skeletal and calendar age are within 1 year of each other. Developing at the expected rate for their age.</span></div>
+  </div>
+</div>
+      <div style="background:#0a1828;border:1px solid #0f2035;border-radius:12px;padding:16px 20px;display:flex;align-items:flex-start;gap:14px;margin-top:20px">
+      <div style="font-family:monospace;font-size:26px;font-weight:900;color:#1fd070;line-height:1;min-width:56px">71</div>
+      <div>
+        <div style="font-family:monospace;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3a5a72;margin-bottom:5px">COPA Score · Your Guide</div>
+        <div style="font-size:13px;color:#b8cfe0;line-height:1.65">A 71 COPA Score is the starting line. Come back in 4 months and let's see what intentional training delivers.</div>
+      </div>
+    </div>
+      <div style="background:linear-gradient(135deg,rgba(31,208,112,0.07),rgba(91,143,201,0.05));border:1px solid rgba(31,208,112,0.2);border-radius:12px;padding:16px 20px;margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+  <div>
+    <div style="font-family:monospace;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1fd070;margin-bottom:4px">📅 Suggested Next Assessment</div>
+    <div style="font-size:14px;color:#ffffff;font-weight:600">June 2026 — Abigail's next COPA Score</div>
+    <div style="font-size:12px;color:#7a9ab8;margin-top:3px">Athletes who reassess every 4 months see and feel their progress. It's the feedback loop that drives motivation.</div>
+  </div>
+  <a href="https://apps.daysmartrecreation.com/dash/x/#/online/copa/programs/20/levels?&" target="_blank"
+     style="background:#1fd070;color:#060d17;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;padding:10px 20px;border-radius:9px;text-decoration:none;white-space:nowrap">
+    Book Reassessment →
+  </a>
+</div>
+    </div>
+  </div>
+
+  <!-- 02 Recommended Training -->
+  <div class="section">
+    <div class="section-num">02</div>
+    <div class="section-title">Recommended Training</div>
+    <div class="section-sub">Personalized sessions based on your assessment results</div>
+    <div class="sessions-grid"><div class="session-card" style="border-color:rgba(91,143,201,0.35)">
+  <div style="font-size:20px;margin-bottom:6px">⚽️</div>
+  <div style="font-family:monospace;font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#7aaee0;margin-bottom:5px">Technical Session</div>
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:800;color:#ffffff;margin-bottom:6px">1st Touch & Receiving</div>
+  <div style="font-size:13px;color:#9ab8cc;line-height:1.55">Targeted reps refining first-touch control and body positioning under pressure.</div>
+  <div style="font-size:11px;color:#5a7a92;margin-top:6px">Based on: Cube Accuracy</div>
+</div><div class="session-card" style="border-color:rgba(245,200,66,0.35)">
+  <div style="font-size:20px;margin-bottom:6px">💪</div>
+  <div style="font-family:monospace;font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#f5c842;margin-bottom:5px">Physical Session</div>
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:800;color:#ffffff;margin-bottom:6px">Top Speed Mechanics</div>
+  <div style="font-size:13px;color:#9ab8cc;line-height:1.55">Develop sprinting form and stride efficiency at maximum velocity.</div>
+  <div style="font-size:11px;color:#5a7a92;margin-top:6px">Based on: Top Speed</div>
+</div><div class="session-card" style="border-color:rgba(31,208,112,0.30)">
+  <div style="font-size:20px;margin-bottom:6px">🎯</div>
+  <div style="font-family:monospace;font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#1fd070;margin-bottom:5px">Recommended Extra</div>
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:800;color:#ffffff;margin-bottom:6px">Gameplay</div>
+  <div style="font-size:13px;color:#9ab8cc;line-height:1.55">Structured free play applying skills in realistic game contexts.</div>
+  
+</div></div>
+    <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+      <button class="popup-btn" onclick="togglePopup('home-popup')">
+        🏠 View At-Home Recommendations
+      </button>
+    </div>
+  </div>
+
+  <!-- 03 Schedules -->
+  <div class="section">
+  <div class="section-num">03</div>
+  <div class="section-title">Sample Training Schedules</div>
+  <div class="section-sub">Click a plan to see how your recommended sessions fit into the week</div>
+  <div id="schedule-container"><div class="schedule-card" onclick="selectSchedule(this)" style="border:1px solid #0f2035;background:#0d1b2e;border-radius:14px;padding:16px 18px;margin-bottom:10px;cursor:pointer"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0"><span style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#f0f6ff">1 Day / Week</span><div style="width:18px;height:18px;border-radius:50%;border:2px solid #1a3a55;display:flex;align-items:center;justify-content:center"></div></div><div class="cal-content" style="display:none"><div style="overflow-x:auto"><div style="min-width:500px"><div class="cal-grid"><div class="cal-time-cell"></div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Mon</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Tue</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1fd070;background:rgba(31,208,112,0.06);border-radius:6px 6px 0 0;border-bottom:2px solid #1fd070">Wed</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Thu</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Fri</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Sat</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Sun</div></div><div class="cal-grid"><div class="cal-time-cell">5:00 PM</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:rgba(91,143,201,0.15);border:1px solid rgba(91,143,201,0.35);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#7aaee0;text-transform:uppercase;margin-bottom:2px">Technical Session</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">1st Touch & Receiving</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div class="cal-grid"><div class="cal-time-cell">5:30 PM</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:rgba(245,200,66,0.13);border:1px solid rgba(245,200,66,0.35);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#f5c842;text-transform:uppercase;margin-bottom:2px">Physical Session</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">Top Speed Mechanics</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div style="margin-top:14px;background:rgba(31,208,112,0.06);border:1px solid rgba(31,208,112,0.15);border-radius:10px;padding:12px 16px">💡 <span style="font-size:13px;color:#a0d8bc">At <strong style="color:#1fd070">2 sessions/week</strong> on 12-month All Access: <strong style="color:#1fd070">$275/mo</strong> · <strong style="color:#1fd070">~$32/session</strong></span></div><div style="margin-top:8px;font-size:11px;color:#4a6a82;font-style:italic">*Session times are for example purposes</div></div></div></div></div><div class="schedule-card" onclick="selectSchedule(this)" style="border:1.5px solid #1fd070;background:linear-gradient(135deg,rgba(31,208,112,0.05),#0d1b2e);border-radius:14px;padding:16px 18px;margin-bottom:10px;cursor:pointer"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><span style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#1fd070">2 Days / Week</span><div style="width:18px;height:18px;border-radius:50%;background:#1fd070;display:flex;align-items:center;justify-content:center"><div style='width:6px;height:6px;border-radius:50%;background:#070f1c'></div></div></div><div class="cal-content" style="display:block"><div style="overflow-x:auto"><div style="min-width:500px"><div class="cal-grid"><div class="cal-time-cell"></div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Mon</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1fd070;background:rgba(31,208,112,0.06);border-radius:6px 6px 0 0;border-bottom:2px solid #1fd070">Tue</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Wed</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Thu</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Fri</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#a78bfa;background:rgba(31,208,112,0.06);border-radius:6px 6px 0 0;border-bottom:2px solid #a78bfa">Sat</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Sun</div></div><div class="cal-grid"><div class="cal-time-cell">5:00 PM</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:rgba(91,143,201,0.15);border:1px solid rgba(91,143,201,0.35);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#7aaee0;text-transform:uppercase;margin-bottom:2px">Technical Session</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">1st Touch & Receiving</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div class="cal-grid"><div class="cal-time-cell">5:30 PM</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:rgba(31,208,112,0.10);border:1px solid rgba(31,208,112,0.30);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#1fd070;text-transform:uppercase;margin-bottom:2px">Recommended Extra</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">Gameplay</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div class="cal-grid"><div class="cal-time-cell">10:00 AM</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:rgba(31,208,112,0.10);border:1px solid rgba(31,208,112,0.30);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#1fd070;text-transform:uppercase;margin-bottom:2px">Recommended Extra</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">Gameplay</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div class="cal-grid"><div class="cal-time-cell">10:30 AM</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:rgba(245,200,66,0.13);border:1px solid rgba(245,200,66,0.35);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#f5c842;text-transform:uppercase;margin-bottom:2px">Physical Session</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">Top Speed Mechanics</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div style="margin-top:14px;background:rgba(31,208,112,0.06);border:1px solid rgba(31,208,112,0.15);border-radius:10px;padding:12px 16px">💡 <span style="font-size:13px;color:#a0d8bc">At <strong style="color:#1fd070">4 sessions/week</strong> on 12-month All Access: <strong style="color:#1fd070">$275/mo</strong> · <strong style="color:#1fd070">~$16/session</strong></span></div><div style="margin-top:8px;font-size:11px;color:#4a6a82;font-style:italic">*Session times are for example purposes</div></div></div></div></div><div class="schedule-card" onclick="selectSchedule(this)" style="border:1px solid #0f2035;background:#0d1b2e;border-radius:14px;padding:16px 18px;margin-bottom:10px;cursor:pointer"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0"><span style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#f0f6ff">3 Days / Week</span><div style="width:18px;height:18px;border-radius:50%;border:2px solid #1a3a55;display:flex;align-items:center;justify-content:center"></div></div><div class="cal-content" style="display:none"><div style="overflow-x:auto"><div style="min-width:500px"><div class="cal-grid"><div class="cal-time-cell"></div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1fd070;background:rgba(31,208,112,0.06);border-radius:6px 6px 0 0;border-bottom:2px solid #1fd070">Mon</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Tue</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1fd070;background:rgba(31,208,112,0.06);border-radius:6px 6px 0 0;border-bottom:2px solid #1fd070">Wed</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Thu</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Fri</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#a78bfa;background:rgba(31,208,112,0.06);border-radius:6px 6px 0 0;border-bottom:2px solid #a78bfa">Sat</div><div style="text-align:center;padding:7px 3px;font-family:monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#1a3a55;background:#070f1c;border-radius:6px 6px 0 0;border-bottom:2px solid transparent">Sun</div></div><div class="cal-grid"><div class="cal-time-cell">5:00 PM</div><div style="background:rgba(91,143,201,0.15);border:1px solid rgba(91,143,201,0.35);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#7aaee0;text-transform:uppercase;margin-bottom:2px">Technical Session</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">1st Touch & Receiving</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:rgba(245,200,66,0.13);border:1px solid rgba(245,200,66,0.35);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#f5c842;text-transform:uppercase;margin-bottom:2px">Physical Session</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">Top Speed Mechanics</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div class="cal-grid"><div class="cal-time-cell">5:30 PM</div><div style="background:rgba(31,208,112,0.10);border:1px solid rgba(31,208,112,0.30);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#1fd070;text-transform:uppercase;margin-bottom:2px">Recommended Extra</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">Gameplay</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div class="cal-grid"><div class="cal-time-cell">6:15 PM</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:rgba(91,143,201,0.15);border:1px solid rgba(91,143,201,0.35);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#7aaee0;text-transform:uppercase;margin-bottom:2px">Technical Session</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">1st Touch & Receiving</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div class="cal-grid"><div class="cal-time-cell">10:00 AM</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:rgba(31,208,112,0.10);border:1px solid rgba(31,208,112,0.30);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#1fd070;text-transform:uppercase;margin-bottom:2px">Recommended Extra</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">Gameplay</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div class="cal-grid"><div class="cal-time-cell">10:30 AM</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div><div style="background:rgba(245,200,66,0.13);border:1px solid rgba(245,200,66,0.35);border-radius:6px;padding:6px 5px;min-height:52px;display:flex;flex-direction:column;justify-content:center"><div style="font-family:monospace;font-size:8px;font-weight:700;color:#f5c842;text-transform:uppercase;margin-bottom:2px">Physical Session</div><div style="font-size:10px;font-weight:600;color:#e0eaf4;line-height:1.3">Top Speed Mechanics</div></div><div style="background:#050b14;border:1px solid #0a1828;border-radius:6px;min-height:52px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:10px;color:#1a2a38">—</div></div><div style="margin-top:14px;background:rgba(31,208,112,0.06);border:1px solid rgba(31,208,112,0.15);border-radius:10px;padding:12px 16px">💡 <span style="font-size:13px;color:#a0d8bc">At <strong style="color:#1fd070">6 sessions/week</strong> on 12-month All Access: <strong style="color:#1fd070">$275/mo</strong> · <strong style="color:#1fd070">~$11/session</strong></span></div><div style="margin-top:8px;font-size:11px;color:#4a6a82;font-style:italic">*Session times are for example purposes</div></div></div></div></div></div>
+</div>
+
+  <div class="section">
+    <div class="section-num">04</div>
+    <div class="section-title">Membership Options</div>
+    <div class="section-sub">Invest in consistent, assessment-driven development</div>
+    <div style="font-size:13px;color:#7a9ab8;margin-bottom:16px">Ages 12–19 · $99 startup fee · 7-day money-back guarantee</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div style="background:#0a1420;border:1.5px solid #0f2035;border-radius:12px;padding:20px;margin-bottom:0">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;color:#ffffff;margin-bottom:12px">Basic COPA</div>
+      <div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #0f2035"><span style="font-size:12px;color:#7a9ab8">12-month</span><span style="font-family:monospace;font-size:13px;font-weight:700;color:#c8daf0">$225/mo</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #0f2035"><span style="font-size:12px;color:#7a9ab8">6-month</span><span style="font-family:monospace;font-size:13px;font-weight:700;color:#c8daf0">$275/mo</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #0f2035"><span style="font-size:12px;color:#7a9ab8">3-month</span><span style="font-family:monospace;font-size:13px;font-weight:700;color:#c8daf0">$325/mo</span></div></div>
+      <div style="margin-bottom:16px"><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">1x Complimentary COPA Score Assessment</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">Flexible Scheduling</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">Unlimited Soccer Training</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">Unlimited SpeedLab Training</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">Unlimited Gameplay</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">Unlimited Specialized Clinics</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">25% OFF Additional COPA Score</span></div></div>
+      <div style="display:flex;gap:8px">
+        <a href="https://copastc.com/member12-19/" target="_blank" style="flex:1;text-align:center;background:transparent;border:1.5px solid #1a3a55;color:#7a9ab8;border-radius:8px;padding:9px 0;font-size:13px;font-weight:700;text-decoration:none;display:block">Learn More</a>
+        <a href="https://apps.daysmartrecreation.com/dash/x/#/online/copa/programs/level/2158?facility_ids=1&" target="_blank" style="flex:1;text-align:center;background:#0a1420;color:#c8daf0;border:1px solid #1a3a55;border-radius:8px;padding:9px 0;font-size:13px;font-weight:800;text-decoration:none;display:block">Membership Registration</a>
+      </div>
+    </div><div style="background:linear-gradient(160deg,#0c2218,#0d1b2e);border:1.5px solid #0f7040;border-radius:12px;padding:20px;margin-bottom:0">
+      <div style="height:3px;background:linear-gradient(90deg,#1fd070,#0f7040);margin:-20px -20px 14px"></div><span style="font-family:monospace;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1fd070;background:rgba(31,208,112,0.12);padding:3px 9px;border-radius:99px;display:inline-block;margin-bottom:8px">Most Popular</span>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;color:#ffffff;margin-bottom:12px">All Access COPA</div>
+      <div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #0f2035"><span style="font-size:12px;color:#7a9ab8">12-month</span><span style="font-family:monospace;font-size:13px;font-weight:700;color:#1fd070">$275/mo</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #0f2035"><span style="font-size:12px;color:#7a9ab8">6-month</span><span style="font-family:monospace;font-size:13px;font-weight:700;color:#1fd070">$325/mo</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #0f2035"><span style="font-size:12px;color:#7a9ab8">3-month</span><span style="font-family:monospace;font-size:13px;font-weight:700;color:#1fd070">$375/mo</span></div></div>
+      <div style="margin-bottom:16px"><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">3x Complimentary COPA Score Assessments</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">Flexible Scheduling</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">Unlimited Soccer Training</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">Unlimited SpeedLab Training</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">Unlimited Gameplay</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">Unlimited Specialized Clinics</span></div><div style="display:flex;gap:7px;margin-bottom:6px"><span style="color:#1fd070;font-size:11px;flex-shrink:0;padding-top:1px">✓</span><span style="font-size:12px;color:#9ab8cc;line-height:1.4">50% OFF Additional COPA Score</span></div></div>
+      <div style="display:flex;gap:8px">
+        <a href="https://copastc.com/member12-19/" target="_blank" style="flex:1;text-align:center;background:transparent;border:1.5px solid #1fd070;color:#1fd070;border-radius:8px;padding:9px 0;font-size:13px;font-weight:700;text-decoration:none;display:block">Learn More</a>
+        <a href="https://apps.daysmartrecreation.com/dash/x/#/online/copa/programs/level/2159?facility_ids=1&" target="_blank" style="flex:1;text-align:center;background:#1fd070;color:#060d17;border:none;border-radius:8px;padding:9px 0;font-size:13px;font-weight:800;text-decoration:none;display:block">Membership Registration</a>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- Connect with a Player Development Specialist -->
+  <div style="background:linear-gradient(135deg,#0a2218,#0b1826);border:1.5px solid #0f7040;border-radius:18px;padding:32px 28px;margin-bottom:48px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(31,208,112,0.08) 0%,transparent 70%);pointer-events:none"></div>
+    <div style="position:relative">
+      <div style="margin-bottom:12px"><span style="font-family:monospace;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1fd070;background:rgba(31,208,112,0.12);padding:3px 9px;border-radius:99px">Next Step</span></div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:900;color:#ffffff;line-height:1;margin-bottom:14px">Connect with a Player Development Specialist</div>
+      <div style="font-size:14px;color:#8aabb8;line-height:1.7;max-width:560px;margin-bottom:18px">
+        Walk through <strong style="color:#d8ecf8">Abigail's</strong> results with a dedicated development specialist at COPA. They'll help map out a training plan, and answer any questions — in a free on site visit.
+      </div>
+      <div style="margin-top:20px">
+        <a href="https://meetings.hubspot.com/keith-mccarty/book-a-tour?uuid=f5cdae24-b173-47fa-ad20-d638546afe6c" target="_blank"
+           style="display:inline-block;background:#1fd070;color:#060d17;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:17px;letter-spacing:.04em;text-transform:uppercase;padding:13px 32px;border-radius:11px;text-decoration:none">
+          Book a Free Visit →
+        </a>
+        <div style="font-size:12px;color:#4a6a82;margin-top:8px">Free · On site · No commitment required</div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="footer">COPA STC · Abigail's Assessment · 2026-02-27</div>
+</div>
+<script>
+function selectSchedule(card){
+  document.querySelectorAll('.schedule-card').forEach(c=>{
+    const s=c===card;
+    c.style.border=s?'1.5px solid #1fd070':'1px solid #0f2035';
+    c.style.background=s?'linear-gradient(135deg,rgba(31,208,112,0.05),#0d1b2e)':'#0d1b2e';
+    c.querySelector('span').style.color=s?'#1fd070':'#f0f6ff';
+    c.querySelector('.cal-content').style.display=s?'block':'none';
+  });
+}
+function togglePopup(id){
+  var el=document.getElementById(id);
+  if(!el)return;
+  if(el.style.position==='fixed'){
+    el.style.display=el.style.display==='none'?'block':'none';
+  } else {
+    el.style.display=el.style.display==='none'?'block':'none';
+  }
+}
+document.addEventListener('click',function(e){
+  ['home-popup','mem-popup'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el&&el.style.display!=='none'){
+      if(e.target===el)el.style.display='none';
+    }
+  });
+});
+</script>
+</body></html>
